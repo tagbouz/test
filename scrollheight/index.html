@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<link rel="stylesheet" href="./normalize.css">
+<link rel="stylesheet" href="./common.css">
+</head>
+<body>
+<div id="wrapper">
+	<header>
+		<p>タイトル部分</p>
+	</header>
+	<div id="indexWrapper">
+		<div class="contents">
+			全画面表示した固定ヘッダー要素を持つDOMをzoomにかける<br>
+			横 base 320: zoom(1.5)後 480<br>
+			 = 縦 base 700: zoom後 x<br>
+			x = 1050(scrollHeight)<br>
+			<br>
+			これだとダメ
+		</div>
+		<div class="contents">
+			横 base 320: zoom(1.5)後 480<br>
+			 = 縦 base x: zoom後 700<br>
+			x = 320 * 700 / 320 * zoom(1.5)<br>
+			x = 700 / zoom<br>
+			x = 466(scrollHeight)<br>
+			要はzoom前のアスペクト比を保持するようにheightを計算してやれば良い
+		</div>
+		<div class="contents">
+			2:3<br>
+			320:480<br>
+		</div>
+		<div class="contents">contents</div>
+		<div class="contents">contents</div>
+	</div>
+</div>
+<script type="text/javascript" src="index.js">
+</script>
+</body>
+</html>
